@@ -1,0 +1,192 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar--scrolled {
+  background: rgba(5, 11, 20, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(244, 249, 255, 0.08);
+  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.6);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.navbar--scrolled .navbar__inner {
+  height: 72px;
+  transition: height 0.4s ease;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+}
+
+/* The crest is a circle on an opaque square, so clip it to a disc. */
+.navbar__logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: scale(1.02);
+  box-shadow: 0 0 0 1px rgba(232, 178, 46, 0.45), 0 6px 18px -8px rgba(4, 16, 31, 0.9);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar__logo:hover .navbar__logo-mark {
+  transform: scale(1.08);
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.navbar__logo-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.navbar__logo-sub {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.navbar__links a {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ice);
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--white);
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+.navbar__cta {
+  display: inline-flex;
+}
+
+.navbar__toggle {
+  display: none;
+  color: var(--white);
+  z-index: 110;
+}
+
+.navbar__mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar__links,
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .navbar--open {
+    background: var(--navy-950);
+  }
+
+  .navbar__mobile {
+    display: block;
+    position: fixed;
+    inset: 0;
+    top: 0;
+    padding-top: 96px;
+    background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 56px;
+  }
+
+  .navbar__mobile--open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 32px;
+  }
+
+  .navbar__mobile-links a {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(244, 249, 255, 0.08);
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .navbar__mobile--open .navbar__mobile-links a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .navbar__mobile-cta {
+    margin: 0 32px;
+  }
+}
