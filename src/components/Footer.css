@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 48px;
-  padding-bottom: 56px;
 }
 
 .footer__brand {
@@ -111,15 +110,16 @@
 }
 
 .footer__lane {
+  margin-top: 56px;
   padding: 0 40px;
 }
 
 .footer__bottom {
-  padding: 26px 40px;
   text-align: center;
 }
 
 .footer__bottom p {
+  padding: 26px 0;
   font-size: 13px;
   color: var(--ice-dim);
 }

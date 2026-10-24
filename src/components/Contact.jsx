@@ -62,7 +62,7 @@ export default function Contact() {
               <span className="contact__icon">
                 <MapPin size={18} />
               </span>
-              Jakarta, Indonesia
+              Depok, Indonesia
             </li>
             <li>
               <span className="contact__icon">
@@ -74,7 +74,7 @@ export default function Contact() {
               <span className="contact__icon">
                 <Mail size={18} />
               </span>
-              hello@sinarswimmingclub.com
+              sinarswimmingclub@gmail.com
             </li>
           </ul>
 
